@@ -1,0 +1,20 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+h1 {
+  font-size: medium;
+}
+.container {
+    margin-top: 3px;
+    display: grid;
+    border: 1px solid #000;
+    padding: 2px;
+    bottom: 3px;
+}
+li {
+    display: grid;
+    list-style: none;
+    width: 50%;
+}
