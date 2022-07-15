@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/da35cd9b00.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gulzar&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <title>Stock Control</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      body {
+        background-image: radial-gradient(circle, #5c0067 0%, #00d4ff 100%);
+      }
+      :root {
+        --bd: 1px solid #000;
+        --ff: "Gulzar", "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        --color: #6daaaa;
+        --color2: rgb(250, 56, 56);
+        --color3: rgb(100, 100, 250);
+        --color4: #00fff2;
+        --color5: rgb(69, 238, 69);
+        --color6: #ffa500;
+        --bs: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+        --br: 10px 0px 0px 0px;
+      }
+      .title {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin-bottom: 24px;
+        padding: 0px 0px 2px 2px;
+        font-family: var(--ff);
+        background-color: var(--color);
+      }
+      .logo a {
+        display: grid;
+        text-decoration: none;
+        font-weight: bold;
+        color: #000;
+      }
+      .nav-container {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        row-gap: 80px;
+        justify-content: space-between;
+        margin: 0 22px 0 22px;
+        padding: 38px;
+      }
+      .box,
+      .box2,
+      .box3,
+      .box4,
+      .box5,
+      .box6 {
+        width: 140px;
+        height: 150px;
+        text-align: center;
+        border-left: var(--bd);
+        border-bottom: var(--bd);
+        border-radius: var(--br);
+        box-shadow: var(--bs);
+        cursor: pointer;
+      }
+      .box:hover,
+      .box2:hover,
+      .box3:hover,
+      .box4:hover,
+      .box5:hover,
+      .box6:hover {
+        transform: scale(1.1);
+      }
+      .box-type,
+      .box2-type,
+      .box3-type,
+      .box4-type,
+      .box5-type,
+      .box6-type {
+        display: flex;
+        justify-content: center;
+      }
+      .box-type p:nth-child(1),
+      .box2-type p:nth-child(1),
+      .box3-type p:nth-child(1),
+      .box4-type p:nth-child(1),
+      .box5-type p:nth-child(1),
+      .box6-type p:nth-child(1) {
+        width: 100%;
+        font-weight: bold;
+        border-top: var(--bd);
+        border-bottom: 1px double #000;
+        border-radius: var(--br);
+      }
+      .box-type p:nth-child(1) {
+        background-color: var(--color);
+      }
+      .box2-type p:nth-child(1) {
+        background-color: var(--color2);
+      }
+      .box3-type p:nth-child(1) {
+        background-color: var(--color3);
+      }
+      .box4-type p:nth-child(1) {
+        background-color: var(--color4);
+      }
+      .box5-type p:nth-child(1) {
+        background-color: var(--color5);
+      }
+      .box6-type p:nth-child(1) {
+        background-color: var(--color6);
+      }
+      .box-type p:nth-child(2),
+      .box2-type p:nth-child(2),
+      .box3-type p:nth-child(2),
+      .box4-type p:nth-child(2),
+      .box5-type p:nth-child(2),
+      .box6-type p:nth-child(2) {
+        border-left: var(--bd);
+        border-bottom: var(--bd);
+        width: 30px;
+        background-color: trasparent;
+        border-radius: 0px 60px 0px 0px;
+      }
+      .box-list,
+      .box2-list,
+      .box3-list,
+      .box4-list,
+      .box5-list,
+      .box6-list {
+        border-right: var(--bd);
+        height: 87%;
+        text-align: initial;
+      }
+      .box-list {
+        background-color: var(--color);
+      }
+      .box2-list {
+        background-color: var(--color2);
+      }
+      .box3-list {
+        background-color: var(--color3);
+      }
+      .box4-list {
+        background-color: var(--color4);
+      }
+      .box5-list {
+        background-color: var(--color5);
+      }
+      .box6-list {
+        background-color: var(--color6);
+      }
+      .box-list ul li,
+      .box2-list ul li,
+      .box3-list ul li,
+      .box4-list ul li,
+      .box5-list ul li,
+      .box6-list ul li {
+        margin-left: 8px;
+        padding: 12px;
+        list-style: none;
+      }
+      .box-list ul li a,
+      .box2-list ul li a,
+      .box3-list ul li a,
+      .box4-list ul li a,
+      .box5-list ul li a,
+      .box6-list ul li a {
+        text-decoration: none;
+        color: #000;
+        font-weight:lighter;
+      }
+      .box-list ul li,
+      .box2-list ul li,
+      .box3-list ul li {
+        margin-left: 8px;
+      }
+      i {
+        font-size: large;
+      }
+      .box-list ul li a:hover,
+      .box2-list ul li a:hover,
+      .box4-list ul li a:hover,
+      .box5-list ul li a:hover,
+      .box6-list ul li a:hover {
+        color: blue;
+      }
+      .box3-list ul li a:hover {
+        color: red;
+      }
+
+      @media (max-width: 540px) {
+        .title {
+          display: grid;
+          grid-template-columns: repeat(2, auto);
+          row-gap: 14px;
+          font-family: "Times New Roman", Times, serif;
+          font-size: 12px;
+        }
+        .logo a {
+          display: grid;
+          align-self: center;
+          font-style: 5px;
+        }
+        .nav-container {
+          display: grid;
+          grid-template-columns: repeat(3, auto);
+          width: 240px;
+          margin: 0px 0px 0px 10px;
+          margin-right: 0px;
+          row-gap: 24px;
+          padding: 0px;
+          column-gap: 26px;
+        }
+        .box,
+        .box2,
+        .box3,
+        .box4,
+        .box5,
+        .box6 {
+          width: 150px;
+          height: 150px;
+          text-align: center;
+          border-left: var(--bd);
+          border-bottom: var(--bd);
+          border-radius: var(--br);
+          box-shadow: var(--bs);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="title">
+      <h1>Sistema de gestión de Control</h1>
+      <p class="logo"><a href="/">GCoder ~$_</a></p>
+    </div>
+    <nav class="nav-container">
+      <div class="box">
+        <div class="box-type">
+          <p>Ingreso</p>
+          <p></p>
+        </div>
+        <div class="box-list">
+          <p></p>
+          <span>
+            <ul>
+              <li><a href="./ingreso.html">Ingresar</a></li>
+              <li><a href="./registro.html">Registrarse</a></li>
+              <li><a href="/">Caja $</a></li>
+            </ul>
+          </span>
+        </div>
+      </div>
+
+      <div class="box2">
+        <div class="box2-type">
+          <p>Productos</p>
+          <p></p>
+        </div>
+        <div class="box2-list">
+          <p></p>
+          <span>
+            <ul>
+              <li><a href="/">Añadir</a></li>
+              <li><a href="/">Catálogo</a></li>
+              <li><a href="/">Pedidos</a></li>
+            </ul>
+          </span>
+        </div>
+      </div>
+
+      <div class="box3">
+        <div class="box3-type">
+          <p>Compras</p>
+          <p></p>
+        </div>
+        <div class="box3-list">
+          <p></p>
+          <span>
+            <ul>
+              <li><a href="/">Productos</a></li>
+              <li><a href="/">Proveedores</a></li>
+              <li><a href="/">Otros</a></li>
+            </ul>
+          </span>
+        </div>
+      </div>
+
+      <div class="box4">
+        <div class="box4-type">
+          <p>Ventas</p>
+          <p></p>
+        </div>
+        <div class="box4-list">
+          <p></p>
+          <span>
+            <ul>
+              <li><a href="#">Diarias</a></li>
+              <li><a href="#">Semanales</a></li>
+              <li><a href="#">Mensuales</a></li>
+            </ul>
+          </span>
+        </div>
+      </div>
+
+      <div class="box5">
+        <div class="box5-type">
+          <p>Stock</p>
+          <p>&nbsp&nbsp</p>
+        </div>
+        <div class="box5-list">
+          <p></p>
+          <span>
+            <ul>
+              <li><a href="/">Cantidades</a></li>
+              <li><a href="/">Devoluciones</a></li>
+              <li><a href="/"></a></li>
+            </ul>
+          </span>
+        </div>
+      </div>
+
+      <div class="box6">
+        <div class="box6-type">
+          <p>Publicidad</p>
+          <p>&nbsp&nbsp</p>
+        </div>
+        <div class="box6-list">
+          <p></p>
+          <span>
+            <ul>
+              <li><a href="/"><i class="fa-brands fa-facebook"></i></a></li>
+              <li><a href="/"><i class="fa-brands fa-instagram"></i></a></li>
+              <li><a href="/"><i class="fa-brands fa-twitter"></i></a></li>
+            </ul>
+          </span>
+        </div>
+      </div>
+    </nav>
+    <script src="./scripts/scripts.js"></script>
+  </body>
+</html>
